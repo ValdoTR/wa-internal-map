@@ -1,7 +1,27 @@
 /// <reference path="../node_modules/@workadventure/iframe-api-typings/iframe_api.d.ts" />
-
+import {bootstrapExtra} from '@workadventure/scripting-api-extra'
 
 console.log('Script started successfully');
+
+async function extendedFeatures() {
+    try {
+        await bootstrapExtra()
+        console.log('Scripting API Extra loaded successfully');
+
+        const website = await WA.room.website.get('cinemaScreen');
+
+        console.log('website',website)
+
+        website.x = 800;
+        website.y = 1000;
+        website.width = 320;
+        website.height = 240;
+    } catch (error) {
+        console.error('Scripting API Extra ERROR',error);
+    }
+}
+
+extendedFeatures();
 
 let currentZone: string;
 let currentPopup: any;
