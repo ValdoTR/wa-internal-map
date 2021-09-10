@@ -12,8 +12,8 @@ async function extendedFeatures() {
 
         console.log('website',website)
 
-        website.x = 800;
-        website.y = 1000;
+        website.x = 1670;
+        website.y = 802;
         website.width = 320;
         website.height = 240;
     } catch (error) {
@@ -34,7 +34,7 @@ const config = [
             {
                 label: 'Meet us',
                 className: 'primary',
-                callback: () => WA.openTab('https://play.staging.workadventu.re/@/tcm/workadventure/wa-village'),
+                callback: () => WA.nav.openTab('https://play.staging.workadventu.re/@/tcm/workadventure/wa-village'),
             }
         ]
     },
@@ -45,28 +45,28 @@ const config = [
             {
                 label: 'LinkedIn',
                 className: 'primary',
-                callback: () => WA.openTab('https://www.linkedin.com/company/workadventu-re'),
+                callback: () => WA.nav.openTab('https://www.linkedin.com/company/workadventu-re'),
             },
             {
                 label: 'Twitter',
                 className: 'primary',
-                callback: () => WA.openTab('https://twitter.com/workadventure_'),
+                callback: () => WA.nav.openTab('https://twitter.com/workadventure_'),
             }
         ]
     },
 ]
 
 
-WA.onEnterZone('needHelp', () => {
+WA.room.onEnterZone('needHelp', () => {
     currentZone = 'needHelp'
     openPopup(currentZone, currentZone + 'Popup')
 });
-WA.onEnterZone('followUs', () => {
+WA.room.onEnterZone('followUs', () => {
     currentZone = 'followUs'
     openPopup(currentZone, currentZone + 'Popup')
 });
-WA.onLeaveZone('needHelp', closePopup);
-WA.onLeaveZone('followUs', closePopup);
+WA.room.onLeaveZone('needHelp', closePopup);
+WA.room.onLeaveZone('followUs', closePopup);
 
 
 function openPopup(zoneName: string, popupName: string) {
@@ -75,7 +75,7 @@ function openPopup(zoneName: string, popupName: string) {
     });
     if (typeof zone !== 'undefined') {
         // @ts-ignore otherwise we can't use zone.cta object
-        currentPopup = WA.openPopup(popupName, zone.message, zone.cta)
+        currentPopup = WA.ui.openPopup(popupName, zone.message, zone.cta)
     }
 }
 function closePopup(){
