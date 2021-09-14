@@ -48,7 +48,7 @@ const config = [
             {
                 label: 'Meet us',
                 className: 'primary',
-                callback: () => WA.nav.openTab('https://play.staging.workadventu.re/@/tcm/workadventure/wa-village'),
+                callback: () => WA.nav.openTab('https://play.workadventu.re/@/tcm/workadventure/welcome#meet-us'),
             }
         ]
     },
@@ -75,7 +75,7 @@ const config = [
     },
     {
         zone: 'toRoom3',
-        message: 'Mr Robot can help you open that door!',
+        message: 'Want to access the gaming room? Mr Robot can help you!',
         cta: []
     },
 ]
