@@ -15,10 +15,10 @@ async function extendedFeatures() {
         countdown.width = 320;
         countdown.height = 240;
 
-        // Place the countdown GIF inside of the cinema screen
+        // Place the github repository card
         const githubRepository = await WA.room.website.get('githubRepository');
-        githubRepository.x = 3328;
-        githubRepository.y = 1120;
+        githubRepository.x = 3296;
+        githubRepository.y = 1088;
         githubRepository.width = 400;
         githubRepository.height = 300;
     } catch (error) {
