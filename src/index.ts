@@ -17,7 +17,7 @@ async function extendedFeatures() {
 
         // Place the github repository card
         const githubRepository = await WA.room.website.get('githubRepository');
-        githubRepository.x = 3296;
+        githubRepository.x = 3272;
         githubRepository.y = 1088;
         githubRepository.width = 400;
         githubRepository.height = 300;
