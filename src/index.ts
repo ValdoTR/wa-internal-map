@@ -75,7 +75,7 @@ const config = [
     },
     {
         zone: 'toRoom3',
-        message: 'Mr Robot can help you open that door!',
+        message: 'Want to access the gaming room? Mr Robot can help you!',
         cta: []
     },
 ]
