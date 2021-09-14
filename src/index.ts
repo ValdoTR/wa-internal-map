@@ -14,6 +14,13 @@ async function extendedFeatures() {
         countdown.y = 802;
         countdown.width = 320;
         countdown.height = 240;
+
+        // Place the countdown GIF inside of the cinema screen
+        const githubRepository = await WA.room.website.get('githubRepository');
+        githubRepository.x = 3328;
+        githubRepository.y = 1120;
+        githubRepository.width = 400;
+        githubRepository.height = 300;
     } catch (error) {
         console.error('Scripting API Extra ERROR',error);
     }
@@ -28,7 +35,7 @@ WA.room.onLeaveZone('scrollMonitor', () => {
     WA.room.showLayer('inactiveMonitor')
 });
 
-// Manage the door code tip
+// Manage the animated CTAs
 WA.room.onEnterZone('toRoom3', () => {
     WA.room.hideLayer('doorTipSwitch')
 });
@@ -36,7 +43,14 @@ WA.room.onLeaveZone('toRoom3', () => {
     WA.room.showLayer('doorTipSwitch')
 });
 
-// Manage the "need help" and "follow us" popups
+WA.room.onEnterZone('doorCode', () => {
+    WA.room.hideLayer('ctaDigitCodeSwitch')
+});
+WA.room.onLeaveZone('doorCode', () => {
+    WA.room.showLayer('ctaDigitCodeSwitch')
+});
+
+// Manage popups
 let currentZone: string;
 let currentPopup: any;
 
@@ -78,8 +92,64 @@ const config = [
         message: 'Want to access the gaming room? Mr Robot can help you!',
         cta: []
     },
+    {
+        zone: 'gatherDesk',
+        message: 'Learn more about WorkAdventure events and our ProductHunt launch!',
+        cta: [
+            {
+                label: 'Dismiss',
+                className: 'normal',
+                callback: () => WA.state.saveVariable('dontShowGatherPopup', true).then(() => closePopup()),
+            }
+        ]
+    },
+    {
+        zone: 'workDesk',
+        message: 'Learn more!',
+        cta: [
+            {
+                label: 'Dismiss',
+                className: 'normal',
+                callback: () => WA.state.saveVariable('dontShowWorkPopup', true).then(() => closePopup()),
+            }
+        ]
+    },
+    {
+        zone: 'collaborateDesk',
+        message: 'Learn more!',
+        cta: [
+            {
+                label: 'Dismiss',
+                className: 'normal',
+                callback: () => WA.state.saveVariable('dontShowCollaboratePopup', true).then(() => closePopup()),
+            }
+        ]
+    },
+    {
+        zone: 'playDesk',
+        message: 'Learn more!',
+        cta: [
+            {
+                label: 'Dismiss',
+                className: 'normal',
+                callback: () => WA.state.saveVariable('dontShowPlayPopup', true).then(() => closePopup()),
+            }
+        ]
+    },
+    {
+        zone: 'createDesk',
+        message: 'Learn more!',
+        cta: [
+            {
+                label: 'Dismiss',
+                className: 'normal',
+                callback: () => WA.state.saveVariable('dontShowCreatePopup', true).then(() => closePopup()),
+            }
+        ]
+    }
 ]
 
+// Need Help / Follow Us
 WA.room.onEnterZone('needHelp', () => {
     openPopup('needHelp')
 });
@@ -89,6 +159,47 @@ WA.room.onEnterZone('followUs', () => {
     openPopup('followUs')
 });
 WA.room.onLeaveZone('followUs', closePopup);
+
+// Room desks
+WA.room.onEnterZone('gatherDesk', () => {
+    const dontShow = WA.state.loadVariable('dontShowGatherPopup')
+    if (dontShow) return;
+
+    openPopup('gatherDesk')
+});
+WA.room.onLeaveZone('gatherDesk', closePopup);
+
+WA.room.onEnterZone('workDesk', () => {
+    const dontShow = WA.state.loadVariable('dontShowWorkPopup')
+    if (dontShow) return;
+
+    openPopup('workDesk')
+});
+WA.room.onLeaveZone('workDesk', closePopup);
+
+WA.room.onEnterZone('collaborateDesk', () => {
+    const dontShow = WA.state.loadVariable('dontShowCollaboratePopup')
+    if (dontShow) return;
+
+    openPopup('collaborateDesk')
+});
+WA.room.onLeaveZone('collaborateDesk', closePopup);
+
+WA.room.onEnterZone('playDesk', () => {
+    const dontShow = WA.state.loadVariable('dontShowPlayPopup')
+    if (dontShow) return;
+
+    openPopup('playDesk')
+});
+WA.room.onLeaveZone('playDesk', closePopup);
+
+WA.room.onEnterZone('createDesk', () => {
+    const dontShow = WA.state.loadVariable('dontShowCreatePopup')
+    if (dontShow) return;
+
+    openPopup('createDesk')
+});
+WA.room.onLeaveZone('createDesk', closePopup);
 
 // Manage the popups to open the Room3 door
 WA.room.onEnterZone('doorCode', () => {
