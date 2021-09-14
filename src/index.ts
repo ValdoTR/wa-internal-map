@@ -20,7 +20,7 @@ async function extendedFeatures() {
         githubRepository.x = 3328;
         githubRepository.y = 1120;
         githubRepository.width = 300;
-        githubRepository.height = 200;
+        githubRepository.height = 300;
     } catch (error) {
         console.error('Scripting API Extra ERROR',error);
     }
