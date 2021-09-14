@@ -8,21 +8,35 @@ async function extendedFeatures() {
         await bootstrapExtra()
         console.log('Scripting API Extra loaded successfully');
 
-        const website = await WA.room.website.get('cinemaScreen');
-
-        console.log('website',website)
-
-        website.x = 1670;
-        website.y = 802;
-        website.width = 320;
-        website.height = 240;
+        // Place the countdown GIF inside of the cinema screen
+        const countdown = await WA.room.website.get('cinemaScreen');
+        countdown.x = 1670;
+        countdown.y = 802;
+        countdown.width = 320;
+        countdown.height = 240;
     } catch (error) {
         console.error('Scripting API Extra ERROR',error);
     }
 }
-
 extendedFeatures();
 
+// Manage the scrolling effect on the public monitor in the office
+WA.room.onEnterZone('scrollMonitor', () => {
+    WA.room.hideLayer('inactiveMonitor')
+});
+WA.room.onLeaveZone('scrollMonitor', () => {
+    WA.room.showLayer('inactiveMonitor')
+});
+
+// Manage the door code tip
+WA.room.onEnterZone('toRoom3', () => {
+    WA.room.hideLayer('doorTipSwitch')
+});
+WA.room.onLeaveZone('toRoom3', () => {
+    WA.room.showLayer('doorTipSwitch')
+});
+
+// Manage the "need help" and "follow us" popups
 let currentZone: string;
 let currentPopup: any;
 
@@ -54,32 +68,57 @@ const config = [
             }
         ]
     },
+    {
+        zone: 'doorCode',
+        message: 'Hello, I\'m Mr Robot. The code is 5300.',
+        cta: []
+    },
+    {
+        zone: 'toRoom3',
+        message: 'Mr Robot can help you open that door!',
+        cta: []
+    },
 ]
 
-
 WA.room.onEnterZone('needHelp', () => {
-    currentZone = 'needHelp'
-    openPopup(currentZone, currentZone + 'Popup')
-});
-WA.room.onEnterZone('followUs', () => {
-    currentZone = 'followUs'
-    openPopup(currentZone, currentZone + 'Popup')
+    openPopup('needHelp')
 });
 WA.room.onLeaveZone('needHelp', closePopup);
+
+WA.room.onEnterZone('followUs', () => {
+    openPopup('followUs')
+});
 WA.room.onLeaveZone('followUs', closePopup);
 
+// Manage the popups to open the Room3 door
+WA.room.onEnterZone('doorCode', () => {
+    openPopup('doorCode')
+});
+WA.room.onLeaveZone('doorCode', closePopup);
 
-function openPopup(zoneName: string, popupName: string) {
+WA.room.onEnterZone('toRoom3', () => {
+    const isDoorOpen = WA.state.loadVariable('room3Door')
+    if (isDoorOpen) return;
+
+    openPopup('toRoom3')
+});
+WA.room.onLeaveZone('toRoom3', closePopup);
+
+// Popup management functions
+function openPopup(zoneName: string) {
+    currentZone = zoneName
+    const popupName = zoneName + 'Popup'
     const zone = config.find((item) => {
         return item.zone == zoneName
     });
+
     if (typeof zone !== 'undefined') {
         // @ts-ignore otherwise we can't use zone.cta object
         currentPopup = WA.ui.openPopup(popupName, zone.message, zone.cta)
     }
 }
 function closePopup(){
-    if (typeof currentPopup !== undefined) {
+    if (typeof currentPopup !== 'undefined') {
         currentPopup.close();
         currentPopup = undefined;
     }
