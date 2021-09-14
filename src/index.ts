@@ -48,7 +48,7 @@ const config = [
             {
                 label: 'Meet us',
                 className: 'primary',
-                callback: () => WA.nav.openTab('https://play.staging.workadventu.re/@/tcm/workadventure/wa-village'),
+                callback: () => WA.nav.openTab('https://play.workadventu.re/@/tcm/workadventure/welcome#meet-us'),
             }
         ]
     },
