@@ -19,7 +19,7 @@ async function extendedFeatures() {
         const githubRepository = await WA.room.website.get('githubRepository');
         githubRepository.x = 3328;
         githubRepository.y = 1120;
-        githubRepository.width = 300;
+        githubRepository.width = 400;
         githubRepository.height = 300;
     } catch (error) {
         console.error('Scripting API Extra ERROR',error);
@@ -105,7 +105,7 @@ const config = [
     },
     {
         zone: 'workDesk',
-        message: 'Learn more!',
+        message: 'See how your virtual office could be. This is a small example of course ;)',
         cta: [
             {
                 label: 'Dismiss',
@@ -116,7 +116,7 @@ const config = [
     },
     {
         zone: 'collaborateDesk',
-        message: 'Learn more!',
+        message: 'Test and feel live integrations of collaborative software!',
         cta: [
             {
                 label: 'Dismiss',
@@ -127,7 +127,7 @@ const config = [
     },
     {
         zone: 'playDesk',
-        message: 'Learn more!',
+        message: 'Experience multi and solo games, directly embedded into WorkAdventure!',
         cta: [
             {
                 label: 'Dismiss',
@@ -138,7 +138,7 @@ const config = [
     },
     {
         zone: 'createDesk',
-        message: 'Learn more!',
+        message: 'Do you want to create your own map by yourself? See how here!',
         cta: [
             {
                 label: 'Dismiss',
