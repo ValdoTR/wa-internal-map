@@ -19,8 +19,8 @@ async function extendedFeatures() {
         const githubRepository = await WA.room.website.get('githubRepository');
         githubRepository.x = 3328;
         githubRepository.y = 1120;
-        githubRepository.width = 400;
-        githubRepository.height = 300;
+        githubRepository.width = 300;
+        githubRepository.height = 200;
     } catch (error) {
         console.error('Scripting API Extra ERROR',error);
     }
