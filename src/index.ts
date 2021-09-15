@@ -55,7 +55,39 @@ const config = [
         ]
     },
     {
-        zone: 'followUs',
+        zone: 'followUs1',
+        message: 'Hey! Have you already started following us?',
+        cta: [
+            {
+                label: 'LinkedIn',
+                className: 'primary',
+                callback: () => WA.nav.openTab('https://www.linkedin.com/company/workadventu-re'),
+            },
+            {
+                label: 'Twitter',
+                className: 'primary',
+                callback: () => WA.nav.openTab('https://twitter.com/workadventure_'),
+            }
+        ]
+    },
+    {
+        zone: 'followUs2',
+        message: 'Hey! Have you already started following us?',
+        cta: [
+            {
+                label: 'LinkedIn',
+                className: 'primary',
+                callback: () => WA.nav.openTab('https://www.linkedin.com/company/workadventu-re'),
+            },
+            {
+                label: 'Twitter',
+                className: 'primary',
+                callback: () => WA.nav.openTab('https://twitter.com/workadventure_'),
+            }
+        ]
+    },
+    {
+        zone: 'followUs3',
         message: 'Hey! Have you already started following us?',
         cta: [
             {
@@ -141,8 +173,14 @@ const config = [
 WA.room.onEnterZone('needHelp', () => openPopup('needHelp'));
 WA.room.onLeaveZone('needHelp', closePopup);
 
-WA.room.onEnterZone('followUs', () => openPopup('followUs'));
-WA.room.onLeaveZone('followUs', closePopup);
+WA.room.onEnterZone('followUs1', () => openPopup('followUs1'));
+WA.room.onLeaveZone('followUs1', closePopup);
+
+WA.room.onEnterZone('followUs2', () => openPopup('followUs2'));
+WA.room.onLeaveZone('followUs2', closePopup);
+
+WA.room.onEnterZone('followUs3', () => openPopup('followUs3'));
+WA.room.onLeaveZone('followUs3', closePopup);
 
 // Room desks
 WA.room.onEnterZone('gatherDesk', () => {
