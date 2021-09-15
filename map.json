@@ -1678,7 +1678,7 @@
                  "y":1568
                 }, 
                 {
-                 "height":160,
+                 "height":224,
                  "id":36,
                  "name":"githubRepository",
                  "properties":[
@@ -1695,7 +1695,7 @@
                  "rotation":0,
                  "type":"website",
                  "visible":true,
-                 "width":320,
+                 "width":405,
                  "x":3275,
                  "y":1088
                 }, 
