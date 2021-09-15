@@ -28,27 +28,15 @@ async function extendedFeatures() {
 extendedFeatures();
 
 // Manage the scrolling effect on the public monitor in the office
-WA.room.onEnterZone('scrollMonitor', () => {
-    WA.room.hideLayer('inactiveMonitor')
-});
-WA.room.onLeaveZone('scrollMonitor', () => {
-    WA.room.showLayer('inactiveMonitor')
-});
+WA.room.onEnterZone('scrollMonitor', () => WA.room.hideLayer('inactiveMonitor'));
+WA.room.onLeaveZone('scrollMonitor', () => WA.room.showLayer('inactiveMonitor'));
 
 // Manage the animated CTAs
-WA.room.onEnterZone('toRoom3', () => {
-    WA.room.hideLayer('doorTipSwitch')
-});
-WA.room.onLeaveZone('toRoom3', () => {
-    WA.room.showLayer('doorTipSwitch')
-});
+WA.room.onEnterZone('toRoom3', () => WA.room.hideLayer('doorTipSwitch'));
+WA.room.onLeaveZone('toRoom3', () => WA.room.showLayer('doorTipSwitch'));
 
-WA.room.onEnterZone('doorCode', () => {
-    WA.room.hideLayer('ctaDigitCodeSwitch')
-});
-WA.room.onLeaveZone('doorCode', () => {
-    WA.room.showLayer('ctaDigitCodeSwitch')
-});
+WA.room.onEnterZone('doorCode', () => WA.room.hideLayer('ctaDigitCodeSwitch'));
+WA.room.onLeaveZone('doorCode', () => WA.room.showLayer('ctaDigitCodeSwitch'));
 
 // Manage popups
 let currentZone: string;
@@ -62,7 +50,7 @@ const config = [
             {
                 label: 'Meet us',
                 className: 'primary',
-                callback: () => WA.nav.openTab('https://play.workadventu.re/@/tcm/workadventure/welcome#meet-us'),
+                callback: () => WA.nav.openTab('https://play.staging.workadventu.re/@/tcm/workadventure/wa-village#meet-us'),
             }
         ]
     },
@@ -150,14 +138,10 @@ const config = [
 ]
 
 // Need Help / Follow Us
-WA.room.onEnterZone('needHelp', () => {
-    openPopup('needHelp')
-});
+WA.room.onEnterZone('needHelp', () => openPopup('needHelp'));
 WA.room.onLeaveZone('needHelp', closePopup);
 
-WA.room.onEnterZone('followUs', () => {
-    openPopup('followUs')
-});
+WA.room.onEnterZone('followUs', () => openPopup('followUs'));
 WA.room.onLeaveZone('followUs', closePopup);
 
 // Room desks
@@ -202,9 +186,7 @@ WA.room.onEnterZone('createDesk', () => {
 WA.room.onLeaveZone('createDesk', closePopup);
 
 // Manage the popups to open the Room3 door
-WA.room.onEnterZone('doorCode', () => {
-    openPopup('doorCode')
-});
+WA.room.onEnterZone('doorCode', () => openPopup('doorCode'));
 WA.room.onLeaveZone('doorCode', closePopup);
 
 WA.room.onEnterZone('toRoom3', () => {
