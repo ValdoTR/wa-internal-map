@@ -50,7 +50,7 @@ const config = [
             {
                 label: 'Meet us',
                 className: 'primary',
-                callback: () => WA.nav.openTab('https://play.staging.workadventu.re/@/tcm/workadventure/wa-village#meet-us'),
+                callback: () => WA.nav.goToPage('https://play.staging.workadventu.re/@/tcm/workadventure/wa-village#meet-us'),
             }
         ]
     },
