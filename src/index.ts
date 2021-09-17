@@ -45,14 +45,8 @@ let currentPopup: any;
 const config = [
     {
         zone: 'needHelp',
-        message: 'Do you need some guidance? We are happy to help you out.',
-        cta: [
-            {
-                label: 'Meet us',
-                className: 'primary',
-                callback: () => WA.nav.goToPage('https://play.staging.workadventu.re/@/tcm/workadventure/wa-village#meet-us'),
-            }
-        ]
+        message: 'Do you need some guidance? Meet us by going at the top left of the map!',
+        cta: []
     },
     {
         zone: 'followUs1',
