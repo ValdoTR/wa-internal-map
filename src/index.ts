@@ -229,6 +229,11 @@ WA.room.onEnterZone('toRoom3', () => {
 });
 WA.room.onLeaveZone('toRoom3', closePopup);
 
+// Register zones
+WA.room.onEnterZone('register', () => {
+    WA.nav.openTab('https://workadventu.re/getting-started')
+});
+
 // Popup management functions
 function openPopup(zoneName: string) {
     currentZone = zoneName
