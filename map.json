@@ -700,7 +700,12 @@
                 {
                  "name":"openWebsite",
                  "type":"string",
-                 "value":"https:\/\/www.youtube.com\/embed\/Z2pTaIaWxHo"
+                 "value":"https:\/\/www.youtube.com\/embed\/Y9ubBWf5w20"
+                }, 
+                {
+                 "name":"openWebsiteWidth",
+                 "type":"int",
+                 "value":70
                 }],
          "type":"tilelayer",
          "visible":true,
