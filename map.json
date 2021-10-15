@@ -2016,7 +2016,7 @@
                 {
                  "height":0,
                  "id":67,
-                 "name":"sofa",
+                 "name":"sofaWebsite",
                  "point":true,
                  "properties":[
                         {
@@ -2033,11 +2033,6 @@
                          "name":"persist",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"admin"
                         }],
                  "rotation":0,
                  "type":"variable",
