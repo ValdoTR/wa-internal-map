@@ -2000,11 +2000,6 @@
                          "name":"persist",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"writableBy",
-                         "type":"string",
-                         "value":"admin"
                         }],
                  "rotation":0,
                  "type":"variable",
@@ -2090,7 +2085,7 @@
         {
          "name":"mapCopyright",
          "type":"string",
-         "value":"Credits: Valdo Romao https:\/\/www.linkedin.com\/in\/valdo-romao\/ \nLicence: CC-BY-SA 3.0 (http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/)"
+         "value":"Credits: hello@workadventu.re \nLicence: CC-BY-SA 3.0 (http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/)"
         }, 
         {
          "name":"mapDescription",
