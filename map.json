@@ -2110,7 +2110,7 @@
         {
          "name":"script",
          "type":"string",
-         "value":"dist\/script.js"
+         "value":"script.js"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
