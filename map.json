@@ -2236,7 +2236,7 @@
         {
          "name":"mapCopyright",
          "type":"string",
-         "value":"Credits: hello@workadventu.re \nLicence: CC-BY-SA 3.0 (http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/)"
+         "value":"CC-BY-SA 3.0 (http:\/\/creativecommons.org\/licenses\/by-sa\/3.0\/)"
         }, 
         {
          "name":"mapDescription",
@@ -2256,12 +2256,17 @@
         {
          "name":"mapName",
          "type":"string",
-         "value":"Webinar"
+         "value":"WA Village"
         }, 
         {
          "name":"script",
          "type":"string",
          "value":"script.js"
+        }, 
+        {
+         "name":"tutorial",
+         "type":"bool",
+         "value":true
         }],
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
