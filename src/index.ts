@@ -27,10 +27,6 @@ async function extendedFeatures() {
 }
 extendedFeatures();
 
-// Manage the scrolling effect on the public monitor in the office
-WA.room.onEnterZone('scrollMonitor', () => WA.room.hideLayer('inactiveMonitor'));
-WA.room.onLeaveZone('scrollMonitor', () => WA.room.showLayer('inactiveMonitor'));
-
 // Manage the animated CTAs
 WA.room.onEnterZone('toRoom3', () => WA.room.hideLayer('doorTipSwitch'));
 WA.room.onLeaveZone('toRoom3', () => WA.room.showLayer('doorTipSwitch'));
@@ -160,8 +156,23 @@ const config = [
                 callback: () => WA.state.saveVariable('dontShowCreatePopup', true).then(() => closePopup()),
             }
         ]
+    },
+    {
+        zone: 'webinar',
+        message: 'Sign up for our French webinar on the Future of Work: Where do we stand today in the transition to hybrid work?',
+        cta: [
+            {
+                label: 'Sign up',
+                className: 'primary',
+                callback: () => WA.nav.openCoWebSite('https://meetup.workadventu.re/future-of-work'),
+            }
+        ]
     }
 ]
+
+// Webinar
+WA.room.onEnterZone('webinar', () => openPopup('webinar'));
+WA.room.onLeaveZone('webinar', closePopup);
 
 // Need Help / Follow Us
 WA.room.onEnterZone('needHelp', () => openPopup('needHelp'));
