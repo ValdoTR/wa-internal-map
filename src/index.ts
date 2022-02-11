@@ -162,6 +162,11 @@ const config = [
         message: 'Sign up for our French webinar on the Future of Work: Where do we stand today in the transition to hybrid work?',
         cta: [
             {
+                label: 'Close',
+                className: 'normal',
+                callback: () => closePopup,
+            },
+            {
                 label: 'Sign up',
                 className: 'primary',
                 callback: () => WA.nav.openCoWebSite('https://meetup.workadventu.re/future-of-work'),
