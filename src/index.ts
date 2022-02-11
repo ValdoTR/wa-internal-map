@@ -164,7 +164,7 @@ const config = [
             {
                 label: 'Close',
                 className: 'normal',
-                callback: () => closePopup,
+                callback: () => closePopup(),
             },
             {
                 label: 'Sign up',
@@ -177,7 +177,10 @@ const config = [
 
 // Webinar
 WA.room.onEnterZone('webinar', () => openPopup('webinar'));
-WA.room.onLeaveZone('webinar', closePopup);
+WA.room.onLeaveZone('webinar',() => {
+    closePopup()
+    WA.nav.closeCoWebSite()
+});
 
 // Need Help / Follow Us
 WA.room.onEnterZone('needHelp', () => openPopup('needHelp'));
