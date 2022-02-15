@@ -176,11 +176,13 @@ const config = [
 ]
 
 // Webinar
+/* Uncomment this if you want to display the webinar popup
 WA.room.onEnterZone('webinar', () => openPopup('webinar'));
 WA.room.onLeaveZone('webinar',() => {
     closePopup()
     WA.nav.closeCoWebSite()
 });
+*/
 
 // Need Help / Follow Us
 WA.room.onEnterZone('needHelp', () => openPopup('needHelp'));
