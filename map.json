@@ -840,12 +840,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"https:\/\/www.youtube.com\/embed\/Y9ubBWf5w20"
-                        }, 
-                        {
-                         "name":"openWebsiteWidth",
-                         "type":"int",
-                         "value":70
+                         "value":"https:\/\/valdotr.github.io\/stream-starting-soon\/"
                         }],
                  "type":"tilelayer",
                  "visible":true,
@@ -2295,7 +2290,7 @@
          "value":true
         }],
  "renderorder":"right-down",
- "tiledversion":"1.8.0",
+ "tiledversion":"1.8.1",
  "tileheight":32,
  "tilesets":[
         {
