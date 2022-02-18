@@ -103,13 +103,13 @@ const config = [
         cta: []
     },
     {
-        zone: 'gatherDesk',
+        zone: 'meetDesk',
         message: 'Learn more about WorkAdventure events and our ProductHunt launch!',
         cta: [
             {
                 label: 'Dismiss',
                 className: 'normal',
-                callback: () => WA.state.saveVariable('dontShowGatherPopup', true).then(() => closePopup()),
+                callback: () => WA.state.saveVariable('dontShowMeetPopup', true).then(() => closePopup()),
             }
         ]
     },
@@ -198,13 +198,13 @@ WA.room.onEnterZone('followUs3', () => openPopup('followUs3'));
 WA.room.onLeaveZone('followUs3', closePopup);
 
 // Room desks
-WA.room.onEnterZone('gatherDesk', () => {
-    const dontShow = WA.state.loadVariable('dontShowGatherPopup')
+WA.room.onEnterZone('meetDesk', () => {
+    const dontShow = WA.state.loadVariable('dontShowMeetPopup')
     if (dontShow) return;
 
-    openPopup('gatherDesk')
+    openPopup('meetDesk')
 });
-WA.room.onLeaveZone('gatherDesk', closePopup);
+WA.room.onLeaveZone('meetDesk', closePopup);
 
 WA.room.onEnterZone('workDesk', () => {
     const dontShow = WA.state.loadVariable('dontShowWorkPopup')
