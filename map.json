@@ -1371,11 +1371,6 @@
                          "name":"jitsiRoomAdminTag",
                          "type":"string",
                          "value":"admin"
-                        }, 
-                        {
-                         "name":"meetingRoomLabel",
-                         "type":"string",
-                         "value":"Albert Einstein"
                         }],
                  "type":"tilelayer",
                  "visible":true,
@@ -2290,7 +2285,7 @@
          "value":true
         }],
  "renderorder":"right-down",
- "tiledversion":"1.8.1",
+ "tiledversion":"1.8.2",
  "tileheight":32,
  "tilesets":[
         {
