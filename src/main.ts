@@ -36,7 +36,6 @@ WA.room.onEnterZone('doorCode', () => WA.room.hideLayer('ctaDigitCodeSwitch'));
 WA.room.onLeaveZone('doorCode', () => WA.room.showLayer('ctaDigitCodeSwitch'));
 
 // Manage popups
-let currentZone: string;
 let currentPopup: any;
 
 const config = [
@@ -253,7 +252,6 @@ WA.room.onLeaveZone('toRoom3', closePopup);
 
 // Popup management functions
 function openPopup(zoneName: string) {
-    currentZone = zoneName
     const popupName = zoneName + 'Popup'
     const zone = config.find((item) => {
         return item.zone == zoneName
